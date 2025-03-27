@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [X] Commit: `Implement delete function in Subscriber repository.`
     -   [X] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [X] Commit: `Create Notification service struct skeleton.`
+    -   [X] Commit: `Implement subscribe function in Notification service.`
+    -   [X] Commit: `Implement subscribe function in Notification controller.`
+    -   [X] Commit: `Implement unsubscribe function in Notification service.`
+    -   [X] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [X] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -91,5 +91,17 @@ Kalau hanya menggunakan `Vec`, kita harus mencari item satu per satu, yang tentu
 Meskipun kita bisa menggunakan pola Singleton untuk memastikan hanya ada satu instance dari data, menurut saya, menggunakan DashMap di sini lebih praktis karena sudah menyediakan fitur thread safety secara otomatis. Jika pakai Singleton, saya harus menangani sinkronisasi secara manual dengan Mutex atau `RwLock`, yang bisa lebih rumit. Sementara itu, DashMap sudah menangani semua itu dengan lebih mudah dan efisien.
 
 #### Reflection Publisher-2
+
+>In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+Menurut saya, memisahkan Service dan Repository dari Model membantu membuat kode lebih terstruktur dan mudah dipelihara. Repository fokus menangani penyimpanan data, sedangkan Service fokus pada aturan atau proses aplikasi. Dengan begitu, setiap bagian punya tanggung jawab yang jelas dan tidak saling tumpang tindih, sehingga lebih mudah untuk menguji dan mengembangkan fitur baru tanpa merusak bagian lainnya.
+
+>What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+Kalau kita hanya menggunakan Model, maka semua aturan dan penyimpanan data akan tercampur dalam satu file, dan menurut saya ini akan membuat kode jadi sangat kompleks. Interaksi antara `Program`, `Subscriber`, dan Notification akan saling terikat langsung, membuat perubahan kecil di satu model bisa berdampak besar ke model lain. Ini akan menyulitkan debugging dan pengembangan ke depannya.
+
+>Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+Saya sudah coba pakai Postman untuk menguji endpoint subscribe dan `unsubscribe`, dan menurut saya Postman sangat membantu karena saya bisa langsung kirim request HTTP dengan data JSON tanpa perlu buat tampilan atau frontend terlebih dahulu. Fitur yang paling membantu buat saya adalah kemampuan menyimpan *collection request*, melihat response dengan jelas, dan fitur Environment untuk menyimpan variabel seperti URL dasar. Saya merasa ini akan sangat berguna untuk proyek kelompok maupun tugas backend saya selanjutnya.
 
 #### Reflection Publisher-3
